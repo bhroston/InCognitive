@@ -12,10 +12,12 @@ from bokeh.models.widgets import FileInput, NumberEditor, TextEditor
 from bokeh.layouts import layout, column, row
 from bokeh.plotting import figure
 from bokeh.models import (Spacer, DataTable, ColumnDataSource,
-    Div, Button, Spinner, CheckboxGroup, Select, Panel, Tabs,
+    Div, Button, Spinner, CheckboxGroup, Select, Tabs,
     FactorRange, TableColumn, BoxZoomTool, PanTool, ResetTool,
     HoverTool, TapTool, WheelZoomTool, SaveTool, PreText
 )
+
+from bokeh.models.widgets import Panel
 
 from bokeh.models.callbacks import CustomJS
 from os.path import join, dirname
