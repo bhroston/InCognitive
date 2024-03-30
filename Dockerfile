@@ -1,6 +1,4 @@
-FROM python:3.8
-
-EXPOSE 5006
+FROM python:3.10.9
 
 RUN apt-get update &&  apt-get install libjpeg-dev zlib1g-dev \
   && apt-get -yq autoremove \
@@ -23,7 +21,9 @@ RUN pip install --upgrade pip \
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-EXPOSE 5006
+ENV ORIGIN="0.0.0.0:5006" PORT="5006" PREFIX="" LOG_LEVEL="info"
 
 COPY ./InCognitiveApp /InCognitiveApp
 ENTRYPOINT ["./entrypoint.sh"]
+
+CMD bokeh serve InCognitiveApp/main.py --allow-websocket-origin=0.0.0.0:5006
